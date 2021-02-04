@@ -26,13 +26,15 @@ interface Props {
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();
 
+  console.log(isOpen);
+
   return (
     <Stack
       bg="white"
       w="100%"
       spacing={0}
-      onMouseOver={onToggle}
-      onMouseOut={onToggle}
+      onMouseEnter={onToggle}
+      onMouseLeave={onToggle}
     >
       <Box
         w="100%"
@@ -57,13 +59,9 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
         <FadeSlideButton isOpen={isOpen} text="Quick view" />
       </Box>
       <Flex w="100%" bg="none" textAlign="center" p={6} direction="column">
-        {/* <Text mb={1}>{name}</Text>
-        <Text mb={5}>{price}</Text> */}
-        <Box>
-          <Text mb={5}>
-            {name} <br /> {price}
-          </Text>
-        </Box>
+        <Text>{name}</Text>
+        <Text mb={5}>{price}</Text>
+
         <FadeButton isOpen={isOpen} text="Add to cart" bg="green" />
       </Flex>
     </Stack>
