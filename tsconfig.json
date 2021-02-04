@@ -15,6 +15,17 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/hello.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/api/hello.js",
+    "components/ProductCard/index.js",
+    "components/ProductCard/ProductCard.js",
+    "components/shared/FadeButton.js",
+    "layout/index.js",
+    "pages/_app.js",
+    "pages/index.js"
+  ],
   "exclude": ["node_modules"]
 }
