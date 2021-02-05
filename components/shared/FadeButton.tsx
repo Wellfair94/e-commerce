@@ -6,7 +6,7 @@ interface Props {
   text: String;
 }
 
-const FadeButton: React.FC<Props> = ({ isOpen, text }) => {
+const FadeButton: React.FC<Props> = ({ isOpen, text, bg }) => {
   return (
     <Fade in={isOpen}>
       <Button

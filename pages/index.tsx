@@ -46,9 +46,11 @@ export default function Home() {
         direction="column"
         justify="center"
         align="center"
+        textAlign="center"
         bg="grey"
         w="100%"
-        h="50vh"
+        minH="70vh"
+        py={5}
       >
         <Heading color="white" fontWeight="600" size="3xl">
           CERAMIC STUDIO
