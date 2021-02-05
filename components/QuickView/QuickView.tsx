@@ -5,8 +5,12 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
+  Heading,
+  Text,
   ModalCloseButton,
   Button,
+  Image,
+  Flex,
 } from "@chakra-ui/react";
 
 interface Props {
@@ -16,19 +20,25 @@ interface Props {
 
 const QuickView: React.FC<Props> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} motionPreset="slideInBottom">
+    <Modal
+      size="3xl"
+      isOpen={isOpen}
+      onClose={onClose}
+      motionPreset="slideInBottom"
+    >
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Modal Title</ModalHeader>
+      <ModalContent borderRadius="none">
+        <ModalHeader>
+          <Heading size="md">Product One</Heading>
+          <Text fontSize="md">£9.99</Text>
+        </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>test</ModalBody>
-
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
-          </Button>
-          <Button variant="ghost">Secondary Action</Button>
-        </ModalFooter>
+        <ModalBody pb={10}>
+          <Flex>
+            <Image w="50%" h="300px" />
+            <Text>Description</Text>
+          </Flex>
+        </ModalBody>
       </ModalContent>
     </Modal>
   );
