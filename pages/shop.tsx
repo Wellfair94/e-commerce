@@ -46,6 +46,46 @@ const products = [
     price: "$9.99",
     quantity: 1,
   },
+  {
+    id: "7",
+    name: "product one",
+    price: "$9.99",
+    tag: "Best Seller",
+    quantity: 1,
+  },
+  {
+    id: "8",
+    name: "product two",
+    price: "$9.99",
+    tag: "New",
+    quantity: 1,
+  },
+  {
+    id: "9",
+    name: "product three",
+    price: "$9.99",
+    quantity: 1,
+  },
+  {
+    id: "10",
+    name: "product one",
+    price: "$9.99",
+    tag: "Best Seller",
+    quantity: 1,
+  },
+  {
+    id: "11",
+    name: "product two",
+    price: "$9.99",
+    tag: "New",
+    quantity: 1,
+  },
+  {
+    id: "12",
+    name: "product three",
+    price: "$9.99",
+    quantity: 1,
+  },
 ];
 
 export default function Shop() {

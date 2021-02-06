@@ -42,30 +42,28 @@ const Header: React.FC = () => {
       <Flex
         h="60px"
         w="100%"
-        justify="center"
+        justify="space-between"
         bg="gray.100"
         position="fixed"
         p={[2, 2, 5, 5]}
         zIndex="100"
+        align="center"
       >
-        <Flex align="center" justify="space-between" w="100%" p={0}>
-          <Text>Logo</Text>
+        <Flex w="150px">
+          <Text>F R E D D I E . W</Text>
+        </Flex>
 
-          <HStack
-            spacing={5}
-            display={["none", "none", "none", "flex"]}
-            w="60vw"
-            justify="center"
-          >
-            {links.map(({ label, path }) => (
-              <Link href={path} key={label}>
-                <Text fontWeight="500" _hover={{ cursor: "pointer" }}>
-                  {label}
-                </Text>
-              </Link>
-            ))}
-          </HStack>
+        <HStack spacing={5} display={["none", "none", "none", "flex"]}>
+          {links.map(({ label, path }) => (
+            <Link href={path} key={label}>
+              <Text fontWeight="500" _hover={{ cursor: "pointer" }}>
+                {label}
+              </Text>
+            </Link>
+          ))}
+        </HStack>
 
+        <Flex w="150px" justify="flex-end">
           <HStack spacing={4}>
             <IconButton
               bg="none"
