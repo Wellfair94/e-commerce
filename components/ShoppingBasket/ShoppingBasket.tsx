@@ -58,7 +58,9 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
               </Stack>
 
               <Divider />
-              <Button>Checkout</Button>
+              <Button bg="black" color="white" borderRadius="none">
+                Checkout
+              </Button>
             </Stack>
           </DrawerFooter>
         </DrawerContent>

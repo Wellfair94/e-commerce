@@ -9,6 +9,9 @@ import {
 import ShoppingBasket from "components/ShoppingBasket";
 import SideMenu from "components/SideMenu";
 import { useState } from "react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+
+// ! Fix centering of links
 
 const Header: React.FC = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -17,10 +20,10 @@ const Header: React.FC = () => {
   return (
     <>
       <Flex h="60px" bg="tomato" w="100%" justify="center">
-        <Flex align="center" justify="space-between" w="100%" p={[3, 3, 0, 0]}>
+        <Flex align="center" justify="space-between" w="100%" p={0}>
           <Text mr={10}>Logo</Text>
 
-          <HStack spacing={5} display={["none", "none", "flex", "flex"]}>
+          <HStack spacing={5} display={["none", "none", "none", "flex"]}>
             <Text>Home</Text>
             <Text>Shop</Text>
             <Text>About</Text>
@@ -29,11 +32,15 @@ const Header: React.FC = () => {
 
           <HStack spacing={5}>
             <Button onClick={() => setShowBasket(true)}>Basket</Button>
-            <Button display={["block", "block", "none"]} onClick={onOpen}>
+
+            <Button
+              display={["block", "block", "block", "none"]}
+              onClick={onOpen}
+            >
               Menu
             </Button>
-            <Flex align="center" display={["none", "none", "flex"]}>
-              {" "}
+
+            <Flex align="center" display={["none", "none", "none", "flex"]}>
               <Avatar size="xs" _hover={{ cursor: "pointer" }} />
               <Text ml={1}>Log in</Text>
             </Flex>

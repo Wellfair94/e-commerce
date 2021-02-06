@@ -1,10 +1,15 @@
+interface ActionTypes {
+  type: String;
+  payload?: String;
+}
+
 export const basketActions = {
   ADD_ITEM: "add-item",
   REMOVE_ITEM: "remove-item",
   CLEAR_CART: "clear-cart",
 };
 
-export const basketReducer = (state: [], action) => {
+export const basketReducer = (state: [], action: ActionTypes) => {
   switch (action.type) {
     case basketActions.ADD_ITEM:
       break;
