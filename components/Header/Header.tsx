@@ -12,8 +12,26 @@ import SideMenu from "components/SideMenu";
 import { useState } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { BiShoppingBag } from "react-icons/bi";
+import Link from "next/link";
 
-// ! Fix centering of links
+const links = [
+  {
+    label: "Home",
+    path: "/",
+  },
+  {
+    label: "Shop",
+    path: "/shop",
+  },
+  {
+    label: "About",
+    path: "/about",
+  },
+  {
+    label: "Contact",
+    path: "/contact",
+  },
+];
 
 const Header: React.FC = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -21,15 +39,31 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <Flex h="60px" bg="tomato" w="100%" justify="center">
+      <Flex
+        h="60px"
+        w="100%"
+        justify="center"
+        bg="gray.100"
+        position="fixed"
+        p={[2, 2, 5, 5]}
+        zIndex="100"
+      >
         <Flex align="center" justify="space-between" w="100%" p={0}>
-          <Text mr={10}>Logo</Text>
+          <Text>Logo</Text>
 
-          <HStack spacing={5} display={["none", "none", "none", "flex"]}>
-            <Text>Home</Text>
-            <Text>Shop</Text>
-            <Text>About</Text>
-            <Text>Contact</Text>
+          <HStack
+            spacing={5}
+            display={["none", "none", "none", "flex"]}
+            w="60vw"
+            justify="center"
+          >
+            {links.map(({ label, path }) => (
+              <Link href={path} key={label}>
+                <Text fontWeight="500" _hover={{ cursor: "pointer" }}>
+                  {label}
+                </Text>
+              </Link>
+            ))}
           </HStack>
 
           <HStack spacing={4}>

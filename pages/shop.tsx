@@ -6,7 +6,11 @@ import Layout from "layout";
 export default function Shop() {
   return (
     <Layout>
-      <SectionDivider title="Shop" subText="This is the shop" />
+      <SectionDivider
+        title="Shop"
+        subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus libero odio unde repudiandae consequatur. Quisquam facere laborum aliquam velit nemo."
+        dark
+      />
     </Layout>
   );
 }

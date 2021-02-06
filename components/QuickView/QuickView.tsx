@@ -11,21 +11,24 @@ import {
   Image,
   Stack,
 } from "@chakra-ui/react";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import QuantityInput from "components/shared/QuantityInput";
 import BasketItem from "components/BasketItem/types";
-import { BasketContext } from "contexts/BasketContext";
-import { BasketActions } from "reducers/BasketReducer";
 
 interface Props {
   product: BasketItem;
   isOpen: boolean;
   onClose: () => void;
+  handleClick: (payload: BasketItem) => void;
 }
 
-const QuickView: React.FC<Props> = ({ product, isOpen, onClose }) => {
+const QuickView: React.FC<Props> = ({
+  product,
+  isOpen,
+  onClose,
+  handleClick,
+}) => {
   const [updateQuantity, setUpdateQuanity] = useState(1);
-  const { dispatch } = useContext(BasketContext);
 
   const { id, name, price } = product;
 
@@ -34,10 +37,6 @@ const QuickView: React.FC<Props> = ({ product, isOpen, onClose }) => {
     name: name,
     price: price,
     quantity: updateQuantity,
-  };
-
-  const handleClick = () => {
-    dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
   };
 
   return (
@@ -69,7 +68,7 @@ const QuickView: React.FC<Props> = ({ product, isOpen, onClose }) => {
                 borderRadius="none"
                 color="white"
                 bg="black"
-                onClick={handleClick}
+                onClick={() => handleClick(payload)}
               >
                 Add to cart
               </Button>

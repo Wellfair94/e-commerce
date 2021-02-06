@@ -58,6 +58,7 @@ export default function Home() {
         w="100%"
         minH="70vh"
         py={5}
+        mb={10}
       >
         <Heading color="white" fontWeight="600" size="3xl">
           CERAMIC STUDIO

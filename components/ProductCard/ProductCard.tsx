@@ -1,4 +1,11 @@
-import { Stack, Box, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import {
+  Stack,
+  Box,
+  Flex,
+  Text,
+  useDisclosure,
+  useToast,
+} from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
 import FadeButton from "components/shared/FadeButton";
@@ -7,6 +14,7 @@ import Props from "components/ProductCard/types";
 import BasketItem from "components/BasketItem/types";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
+import notifications from "utils/notifications";
 
 // ADD RESPONSIVELY SIZING IMAGES
 
@@ -14,16 +22,29 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();
   const [showQuickView, setShowQuickView] = useState(false);
   const { dispatch } = useContext(BasketContext);
+  const toast = useToast();
 
-  const product: BasketItem = {
+  const product = {
     id: id,
     name: name,
     price: price,
     quantity: 1,
   };
 
-  const handleClick = () => {
-    dispatch({ type: BasketActions.ADD_ITEM, payload: product });
+  const handleClick = (payload: BasketItem) => {
+    dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
+    toast({
+      title: "Item added to basket",
+      description: "Click to view.",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
+
+  const handleClose = () => {
+    setShowQuickView(false);
+    onToggle();
   };
 
   return (
@@ -31,13 +52,10 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
       <QuickView
         product={product}
         isOpen={showQuickView}
-        onClose={() => {
-          setShowQuickView(false);
-          onToggle();
-        }}
+        onClose={handleClose}
       />
       <Stack
-        bg="white"
+        bg="none"
         w="100%"
         spacing={0}
         onMouseEnter={() => !isOpen && onToggle()}
@@ -77,7 +95,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
             isOpen={isOpen}
             text="Add to cart"
             bg="green"
-            handleClick={handleClick}
+            handleClick={() => handleClick(product)}
           />
         </Flex>
       </Stack>

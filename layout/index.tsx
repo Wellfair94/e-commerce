@@ -6,10 +6,12 @@ import Header from "components/Header";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <Box bg="white" minH="100vh">
+    <Box bg="gray.100" minH="100vh">
+      <Header />
       <Box p={[2, 2, 5, 5]}>
-        <Header />
-        <Box w="100%">{children}</Box>
+        <Box w="100%" mt="40px">
+          {children}
+        </Box>
         <Footer />
       </Box>
     </Box>

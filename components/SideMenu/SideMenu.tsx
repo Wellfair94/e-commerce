@@ -34,14 +34,14 @@ const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
               <Text>Contact</Text>
             </Stack>
           </DrawerBody>
-          <DrawerFooter p={0}>
+          {/* <DrawerFooter p={0}>
             <Button w="50%" h="75px" borderRadius="none">
               Log in
             </Button>
             <Button w="50%" h="75px" borderRadius="none">
               Register
             </Button>
-          </DrawerFooter>
+          </DrawerFooter> */}
         </DrawerContent>
       </DrawerOverlay>
     </Drawer>

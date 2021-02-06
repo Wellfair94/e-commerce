@@ -6,7 +6,8 @@ const Footer: React.FC = () => {
       px={5}
       py={10}
       w="100%"
-      bg="green"
+      bg="gray.700"
+      color="white"
       justify="space-evenly"
       align="center"
       direction={["column", "column", "row"]}
