@@ -15,6 +15,7 @@ import {
   NumberInputField,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import QuantityInput from "components/shared/QuantityInput";
 
 interface Props {
   isOpen: boolean;
@@ -45,17 +46,7 @@ const QuickView: React.FC<Props> = ({ isOpen, onClose }) => {
                 nobis laborum dolorum nulla asperiores optio sint perspiciatis
                 id in illum.
               </Text>
-              <NumberInput value={quantity}>
-                <HStack spacing={0}>
-                  <Button borderRadius="none">-</Button>
-                  <NumberInputField
-                    w="50px"
-                    textAlign="center"
-                    borderRadius="none"
-                  />
-                  <Button borderRadius="none">+</Button>
-                </HStack>
-              </NumberInput>
+              <QuantityInput quantity={quantity} setQuantity={setQuantity} />
               <Button borderRadius="none" color="white" bg="black">
                 Add to cart
               </Button>

@@ -5,11 +5,13 @@ import {
   useDisclosure,
   Button,
   Avatar,
+  IconButton,
 } from "@chakra-ui/react";
 import ShoppingBasket from "components/ShoppingBasket";
 import SideMenu from "components/SideMenu";
 import { useState } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { BiShoppingBag } from "react-icons/bi";
 
 // ! Fix centering of links
 
@@ -30,15 +32,23 @@ const Header: React.FC = () => {
             <Text>Contact</Text>
           </HStack>
 
-          <HStack spacing={5}>
-            <Button onClick={() => setShowBasket(true)}>Basket</Button>
+          <HStack spacing={4}>
+            <IconButton
+              bg="none"
+              aria-label="Basket"
+              onClick={() => setShowBasket(true)}
+              icon={<BiShoppingBag />}
+              _hover={{ background: "none" }}
+            />
 
-            <Button
+            <IconButton
+              aria-label="Menu"
+              bg="none"
               display={["block", "block", "block", "none"]}
               onClick={onOpen}
-            >
-              Menu
-            </Button>
+              icon={<HamburgerIcon w={6} h={6} />}
+              _hover={{ background: "none" }}
+            />
 
             <Flex align="center" display={["none", "none", "none", "flex"]}>
               <Avatar size="xs" _hover={{ cursor: "pointer" }} />

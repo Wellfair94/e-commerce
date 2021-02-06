@@ -2,8 +2,8 @@ import { Fade, Button } from "@chakra-ui/react";
 
 interface Props {
   isOpen: boolean;
-  bg?: String;
-  text: String;
+  bg?: string;
+  text: string;
 }
 
 const FadeButton: React.FC<Props> = ({ isOpen, text, bg }) => {

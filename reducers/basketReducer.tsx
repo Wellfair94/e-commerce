@@ -1,6 +1,9 @@
 interface ActionTypes {
-  type: String;
-  payload?: String;
+  type: string;
+  payload?: {
+    id: string;
+    quantity: number;
+  };
 }
 
 export const basketActions = {

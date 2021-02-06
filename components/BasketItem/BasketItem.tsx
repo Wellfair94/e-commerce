@@ -2,9 +2,9 @@ import { Image, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 interface Props {
-  id: String;
-  name: String;
-  price: String;
+  id: string;
+  name: string;
+  price: string;
 }
 
 const BasketItem: React.FC<Props> = ({ id, name, price }) => {

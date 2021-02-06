@@ -2,8 +2,8 @@ import { SlideFade, Button } from "@chakra-ui/react";
 
 interface Props {
   isOpen: boolean;
-  bg?: String;
-  text: String;
+  bg?: string;
+  text: string;
   handleClick: () => void;
 }
 

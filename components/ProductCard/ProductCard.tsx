@@ -1,16 +1,5 @@
-import {
-  Stack,
-  Box,
-  Flex,
-  Button,
-  Text,
-  useDisclosure,
-  Fade,
-  ScaleFade,
-  Slide,
-  SlideFade,
-} from "@chakra-ui/react";
-import { useState, useEffect, useRef } from "react";
+import { Stack, Box, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
 import FadeButton from "components/shared/FadeButton";
 import QuickView from "components/QuickView";
@@ -18,10 +7,10 @@ import QuickView from "components/QuickView";
 // ADD RESPONSIVELY SIZING IMAGES
 
 interface Props {
-  id: String;
-  name: String;
-  price: String;
-  tag: String;
+  id: string;
+  name: string;
+  price: string;
+  tag: string;
 }
 
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
