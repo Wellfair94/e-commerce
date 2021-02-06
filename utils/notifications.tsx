@@ -1,6 +1,7 @@
 import { UseToastOptions, Icon } from "@chakra-ui/react";
 import Notification from "components/Notification";
 import { BiShoppingBag } from "react-icons/bi";
+import { ImUndo } from "react-icons/im";
 
 interface Notifications {
   addedToBasket: UseToastOptions;
@@ -20,10 +21,15 @@ export const notifications: Notifications = {
     ),
   },
   removedFromBasket: {
-    title: "Item removed from basket",
-    description: "Click to undo",
     status: "warning",
     duration: 5000,
     isClosable: true,
+    render: () => (
+      <Notification
+        title="Item removed from basket"
+        icon={<Icon as={ImUndo} w={7} h={7} />}
+        description="Click to undo"
+      />
+    ),
   },
 };
