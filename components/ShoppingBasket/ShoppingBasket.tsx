@@ -21,7 +21,7 @@ interface Props {
 }
 
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { basket } = useContext(BasketContext);
+  const { basket = [1, 2, 3, 4] } = useContext(BasketContext);
 
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>

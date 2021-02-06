@@ -15,7 +15,7 @@ import { useContext, useState } from "react";
 import QuantityInput from "components/shared/QuantityInput";
 import BasketItem from "components/BasketItem/types";
 import { BasketContext } from "contexts/BasketContext";
-import { basketActions } from "reducers/basketReducer";
+import { BasketActions } from "reducers/BasketReducer";
 
 interface Props {
   product: BasketItem;
@@ -37,7 +37,7 @@ const QuickView: React.FC<Props> = ({ product, isOpen, onClose }) => {
   };
 
   const handleClick = () => {
-    dispatch({ type: basketActions.ADD_ITEM, payload: payload });
+    dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
   };
 
   return (

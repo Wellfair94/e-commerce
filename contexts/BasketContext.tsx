@@ -1,34 +1,21 @@
 import { createContext, useReducer } from "react";
-import { basketReducer } from "reducers/basketReducer";
+import { BasketReducer } from "reducers/BasketReducer";
+import BasketItem from "components/BasketItem/types";
 
 export const BasketContext = createContext(null);
 
-const testBasket = [
-  {
-    id: "1",
-    name: "product 1",
-    price: "£9.99",
-    quantity: 2,
-  },
-  {
-    id: "2",
-    name: "product 2",
-    price: "£9.99",
-    quantity: 1,
-  },
-  {
-    id: "3",
-    name: "product 3",
-    price: "£9.99",
-    quantity: 1,
-  },
-];
+const initialState = {
+  basket: [],
+  prevBasket: [],
+};
 
 const BasketProvider: React.FC = ({ children }) => {
-  const [basket, dispatch] = useReducer(basketReducer, []);
+  const [state, dispatch] = useReducer(BasketReducer, initialState);
+
+  const { basket, prevBasket } = state;
 
   return (
-    <BasketContext.Provider value={{ basket, dispatch }}>
+    <BasketContext.Provider value={{ basket, prevBasket, dispatch }}>
       {children}
     </BasketContext.Provider>
   );

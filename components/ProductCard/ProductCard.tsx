@@ -6,7 +6,7 @@ import QuickView from "components/QuickView";
 import Props from "components/ProductCard/types";
 import BasketItem from "components/BasketItem/types";
 import { BasketContext } from "contexts/BasketContext";
-import { basketActions } from "reducers/basketReducer";
+import { BasketActions } from "reducers/BasketReducer";
 
 // ADD RESPONSIVELY SIZING IMAGES
 
@@ -23,7 +23,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   };
 
   const handleClick = () => {
-    dispatch({ type: basketActions.ADD_ITEM, payload: product });
+    dispatch({ type: BasketActions.ADD_ITEM, payload: product });
   };
 
   return (

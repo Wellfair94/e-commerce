@@ -1,11 +1,18 @@
 import { Image, Flex, Heading, Text, Icon, IconButton } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Props from "components/BasketItem/types";
 import { DeleteIcon } from "@chakra-ui/icons";
+import { BasketContext } from "contexts/BasketContext";
+import { BasketActions } from "reducers/BasketReducer";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   const [updateQuantity, setUpdateQuanity] = useState(quantity);
   const [total, setTotal] = useState(10);
+  const { dispatch } = useContext(BasketContext);
+
+  const handleClick = () => {
+    dispatch({ type: BasketActions.REMOVE_ITEM, payload: id });
+  };
 
   return (
     <Flex w="100%" bg="green" justifyContent="flex-start">
@@ -22,7 +29,11 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
           </Heading>
         </Flex>
       </Flex>
-      <IconButton aria-label="Remove item" icon={<DeleteIcon />} />
+      <IconButton
+        onClick={handleClick}
+        aria-label="Remove item"
+        icon={<DeleteIcon />}
+      />
     </Flex>
   );
 };
