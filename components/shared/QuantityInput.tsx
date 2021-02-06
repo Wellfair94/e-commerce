@@ -7,9 +7,7 @@ import {
 
 interface Props {
   quantity: number;
-  setQuantity: (prevState: any) => void;
-  // ! Why isn't this working?
-  // setQuantity: (prevState: number) => number;
+  setQuantity: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const QuantityInput: React.FC<Props> = ({ quantity, setQuantity }) => {

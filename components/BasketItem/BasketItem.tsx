@@ -1,6 +1,7 @@
-import { Image, Flex, Heading, Text } from "@chakra-ui/react";
+import { Image, Flex, Heading, Text, Icon, IconButton } from "@chakra-ui/react";
 import { useState } from "react";
 import Props from "components/BasketItem/types";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   const [updateQuantity, setUpdateQuanity] = useState(quantity);
@@ -21,6 +22,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
           </Heading>
         </Flex>
       </Flex>
+      <IconButton aria-label="Remove item" icon={<DeleteIcon />} />
     </Flex>
   );
 };
