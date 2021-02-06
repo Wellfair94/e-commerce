@@ -34,7 +34,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
 
   const handleClick = (payload: BasketItem) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
-    toast(notifications.addedToCart);
+    toast(notifications.addedToBasket);
   };
 
   const handleClose = () => {

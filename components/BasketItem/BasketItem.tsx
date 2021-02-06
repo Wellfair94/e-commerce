@@ -1,17 +1,28 @@
-import { Image, Flex, Heading, Text, Icon, IconButton } from "@chakra-ui/react";
+import {
+  Image,
+  Flex,
+  Heading,
+  Text,
+  Icon,
+  IconButton,
+  useToast,
+} from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import Props from "components/BasketItem/types";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
+import { notifications } from "utils/notifications";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   const [updateQuantity, setUpdateQuanity] = useState(quantity);
   const [total, setTotal] = useState(10);
   const { dispatch } = useContext(BasketContext);
+  const toast = useToast();
 
   const handleClick = () => {
     dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
+    toast(notifications.removedFromBasket);
   };
 
   return (

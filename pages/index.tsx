@@ -1,7 +1,15 @@
-import { Flex, Button, Heading, Text, Stack, Grid } from "@chakra-ui/react";
+import { Flex, Button, Heading, Grid } from "@chakra-ui/react";
 import ProductCard from "components/ProductCard";
 import SectionDivider from "components/shared/SectionDivider";
 import Layout from "layout";
+import { GetServerSideProps } from "next";
+import Link from "next/link";
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {},
+  };
+};
 
 const products = [
   {
@@ -66,9 +74,11 @@ export default function Home() {
         <Heading color="white" size="lg" fontWeight="400" mt={4} mb={10}>
           Your subtitle here
         </Heading>
-        <Button borderRadius="none" bg="black" color="white" w="150px">
-          Shop Now
-        </Button>
+        <Link href="/shop">
+          <Button borderRadius="none" bg="black" color="white" w="150px">
+            Shop Now
+          </Button>
+        </Link>
       </Flex>
 
       <SectionDivider
@@ -87,6 +97,12 @@ export default function Home() {
           <ProductCard key={id} id={id} name={name} price={price} tag={tag} />
         ))}
       </Grid>
+
+      <SectionDivider
+        title="ANOTHER SECTION"
+        subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum rerum accusantium perferendis maiores ex repudiandae, similique vero maxime illum voluptate temporibus delectus fugit! Dolor iste voluptatem eaque? Nesciunt, dolorem placeat?"
+        dark
+      />
     </Layout>
   );
 }
