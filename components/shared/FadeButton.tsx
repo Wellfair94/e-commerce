@@ -4,9 +4,10 @@ interface Props {
   isOpen: boolean;
   bg?: string;
   text: string;
+  handleClick: () => void;
 }
 
-const FadeButton: React.FC<Props> = ({ isOpen, text, bg }) => {
+const FadeButton: React.FC<Props> = ({ isOpen, text, handleClick }) => {
   return (
     <>
       <Fade in={isOpen}>
@@ -17,6 +18,7 @@ const FadeButton: React.FC<Props> = ({ isOpen, text, bg }) => {
           borderRadius="none"
           bg="black"
           color="white"
+          onClick={handleClick}
         >
           {text}
         </Button>
@@ -28,6 +30,7 @@ const FadeButton: React.FC<Props> = ({ isOpen, text, bg }) => {
         borderRadius="none"
         bg="black"
         color="white"
+        onClick={handleClick}
       >
         {text}
       </Button>

@@ -13,9 +13,7 @@ interface Props {
 }
 
 const QuantityInput: React.FC<Props> = ({ quantity, setQuantity }) => {
-  console.log(quantity);
-
-  console.log("tsts");
+  // ! get max from api stock
 
   return (
     <NumberInput value={quantity} min={1} max={99}>

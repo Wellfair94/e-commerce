@@ -2,10 +2,7 @@ import BasketItem from "components/BasketItem/types";
 
 interface ActionTypes {
   type: string;
-  payload?: {
-    id: string;
-    quantity: number;
-  };
+  payload?: BasketItem;
 }
 
 export const basketActions = {
@@ -17,11 +14,21 @@ export const basketActions = {
 export const basketReducer = (state: BasketItem[], action: ActionTypes) => {
   switch (action.type) {
     case basketActions.ADD_ITEM:
-      break;
+      const duplicateItem = state.find(({ id }) => id === action.payload.id);
+
+      if (duplicateItem) {
+        const updatedItem = {
+          ...duplicateItem,
+          quantity: duplicateItem.quantity + action.payload.quantity,
+        };
+
+        const removeDuplicate = state.filter((item) => item !== duplicateItem);
+        return [...removeDuplicate, updatedItem];
+      } else return [...state, action.payload];
     case basketActions.REMOVE_ITEM:
-      break;
+      return state.filter(({ id }) => id !== id);
     case basketActions.CLEAR_CART:
-      break;
+      return [];
     default:
       return state;
   }

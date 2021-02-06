@@ -1,19 +1,35 @@
 import { Stack, Box, Flex, Text, useDisclosure } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
 import FadeButton from "components/shared/FadeButton";
 import QuickView from "components/QuickView";
 import Props from "components/ProductCard/types";
+import BasketItem from "components/BasketItem/types";
+import { BasketContext } from "contexts/BasketContext";
+import { basketActions } from "reducers/basketReducer";
 
 // ADD RESPONSIVELY SIZING IMAGES
 
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();
   const [showQuickView, setShowQuickView] = useState(false);
+  const { dispatch } = useContext(BasketContext);
+
+  const product: BasketItem = {
+    id: id,
+    name: name,
+    price: price,
+    quantity: 1,
+  };
+
+  const handleClick = () => {
+    dispatch({ type: basketActions.ADD_ITEM, payload: product });
+  };
 
   return (
     <>
       <QuickView
+        product={product}
         isOpen={showQuickView}
         onClose={() => {
           setShowQuickView(false);
@@ -57,7 +73,12 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
           <Text>{name}</Text>
           <Text mb={5}>{price}</Text>
 
-          <FadeButton isOpen={isOpen} text="Add to cart" bg="green" />
+          <FadeButton
+            isOpen={isOpen}
+            text="Add to cart"
+            bg="green"
+            handleClick={handleClick}
+          />
         </Flex>
       </Stack>
     </>

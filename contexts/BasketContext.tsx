@@ -25,10 +25,10 @@ const testBasket = [
 ];
 
 const BasketProvider: React.FC = ({ children }) => {
-  const [basket, dispatch] = useReducer(basketReducer, testBasket);
+  const [basket, dispatch] = useReducer(basketReducer, []);
 
   return (
-    <BasketContext.Provider value={{ basket }}>
+    <BasketContext.Provider value={{ basket, dispatch }}>
       {children}
     </BasketContext.Provider>
   );
