@@ -11,7 +11,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   const { dispatch } = useContext(BasketContext);
 
   const handleClick = () => {
-    dispatch({ type: BasketActions.REMOVE_ITEM, payload: id });
+    dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
   };
 
   return (

@@ -50,10 +50,10 @@ const Header: React.FC = () => {
               _hover={{ background: "none" }}
             />
 
-            <Flex align="center" display={["none", "none", "none", "flex"]}>
+            {/* <Flex align="center" display={["none", "none", "none", "flex"]}>
               <Avatar size="xs" _hover={{ cursor: "pointer" }} />
               <Text ml={1}>Log in</Text>
-            </Flex>
+            </Flex> */}
           </HStack>
         </Flex>
       </Flex>

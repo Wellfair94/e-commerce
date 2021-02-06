@@ -37,13 +37,13 @@ export const BasketReducer = (state: Basket, action: Actions) => {
           prevBasket: [...basket],
         };
       } else {
-        return { basket: [...basket, action.payload], prevBasket: [...basket] };
+        return { basket: [...basket, action.payload], prevBasket: basket };
       }
     case "remove-item":
       const filtered = basket.filter(({ id }) => id !== action.payload.id);
-      return { basket: filtered, prevBasket: [...basket] };
+      return { basket: filtered, prevBasket: basket };
     case "clear-cart":
-      return { basket: [], prevBasket: [...basket] };
+      return { basket: [], prevBasket: basket };
     default:
       return state;
   }

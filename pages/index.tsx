@@ -1,5 +1,6 @@
 import { Flex, Button, Heading, Text, Stack, Grid } from "@chakra-ui/react";
 import ProductCard from "components/ProductCard";
+import SectionDivider from "components/shared/SectionDivider";
 import Layout from "layout";
 
 const products = [
@@ -8,34 +9,40 @@ const products = [
     name: "product one",
     price: "$9.99",
     tag: "Best Seller",
+    quantity: 1,
   },
   {
     id: "2",
     name: "product two",
     price: "$9.99",
     tag: "New",
+    quantity: 1,
   },
   {
     id: "3",
     name: "product three",
     price: "$9.99",
+    quantity: 1,
   },
   {
     id: "4",
     name: "product one",
     price: "$9.99",
     tag: "Best Seller",
+    quantity: 1,
   },
   {
     id: "5",
     name: "product two",
     price: "$9.99",
     tag: "New",
+    quantity: 1,
   },
   {
     id: "6",
     name: "product three",
     price: "$9.99",
+    quantity: 1,
   },
 ];
 
@@ -63,30 +70,19 @@ export default function Home() {
         </Button>
       </Flex>
 
-      <Stack
-        mt={10}
-        mb={2}
-        justify="center"
-        align="center"
-        p={10}
-        textAlign="center"
-        bg="white"
-        spacing={5}
-      >
-        <Heading fontWeight="500">OUR COLLECTION</Heading>
-        <Text w="100%" maxW="600px">
-          I'm a paragraph. Click here to add your own text and edit me. It’s
+      <SectionDivider
+        title="OUR COLLECTION"
+        subText="I'm a paragraph. Click here to add your own text and edit me. It’s
           easy. Just click “Edit Text” or double click me to add your own
           content and make changes to the font. I’m a great place for you to
-          tell a story and let your users know a little more about you.
-        </Text>
-      </Stack>
+          tell a story and let your users know a little more about you."
+      />
 
       <Grid
         templateColumns={["1fr", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
         gap={2}
       >
-        {products.map(({ id, name, price, tag = null }) => (
+        {products.map(({ id, name, price, tag = null, quantity }) => (
           <ProductCard key={id} id={id} name={name} price={price} tag={tag} />
         ))}
       </Grid>

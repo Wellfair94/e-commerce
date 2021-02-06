@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import { BasketReducer } from "reducers/BasketReducer";
-import BasketItem from "components/BasketItem/types";
 
 export const BasketContext = createContext(null);
 
