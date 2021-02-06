@@ -3,15 +3,9 @@ import { useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
 import FadeButton from "components/shared/FadeButton";
 import QuickView from "components/QuickView";
+import Props from "components/ProductCard/types";
 
 // ADD RESPONSIVELY SIZING IMAGES
-
-interface Props {
-  id: string;
-  name: string;
-  price: string;
-  tag: string;
-}
 
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();

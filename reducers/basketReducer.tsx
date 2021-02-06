@@ -1,3 +1,5 @@
+import BasketItem from "components/BasketItem/types";
+
 interface ActionTypes {
   type: string;
   payload?: {
@@ -12,7 +14,7 @@ export const basketActions = {
   CLEAR_CART: "clear-cart",
 };
 
-export const basketReducer = (state: [], action: ActionTypes) => {
+export const basketReducer = (state: BasketItem[], action: ActionTypes) => {
   switch (action.type) {
     case basketActions.ADD_ITEM:
       break;

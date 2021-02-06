@@ -9,10 +9,7 @@ import {
   ModalCloseButton,
   Button,
   Image,
-  Flex,
   Stack,
-  NumberInput,
-  NumberInputField,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import QuantityInput from "components/shared/QuantityInput";

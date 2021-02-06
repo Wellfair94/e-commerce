@@ -1,14 +1,9 @@
 import { Image, Flex, Heading, Text } from "@chakra-ui/react";
 import { useState } from "react";
+import Props from "components/BasketItem/types";
 
-interface Props {
-  id: string;
-  name: string;
-  price: string;
-}
-
-const BasketItem: React.FC<Props> = ({ id, name, price }) => {
-  const [quantity, setQuanity] = useState(1);
+const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
+  const [updateQuantity, setUpdateQuanity] = useState(quantity);
   const [total, setTotal] = useState(10);
 
   return (
@@ -18,7 +13,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price }) => {
         <Flex direction="column" p={3} pr={1}>
           <Text>{name}</Text>
           <Text fontSize="sm">{price}</Text>
-          <Text fontSize="sm">Qty: 2</Text>
+          <Text fontSize="sm">Qty: {quantity}</Text>
         </Flex>
         <Flex p={3} pl={1} justifyContent="center" align="center">
           <Heading size="sm" fontWeight="500">

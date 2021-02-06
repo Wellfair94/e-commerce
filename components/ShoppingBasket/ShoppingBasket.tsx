@@ -12,31 +12,17 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import BasketItem from "components/BasketItem";
+import { useContext } from "react";
+import { BasketContext } from "contexts/BasketContext";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const basket = [
-  {
-    id: "1",
-    name: "product 1",
-    price: "£9.99",
-  },
-  {
-    id: "2",
-    name: "product 2",
-    price: "£9.99",
-  },
-  {
-    id: "3",
-    name: "product 3",
-    price: "£9.99",
-  },
-];
-
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
+  const { basket } = useContext(BasketContext);
+
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay>
@@ -46,8 +32,14 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
 
           <DrawerBody p={2}>
             <Stack spacing={1}>
-              {basket.map(({ id, name, price }) => (
-                <BasketItem key={id} id={id} name={name} price={price} />
+              {basket.map(({ id, name, price, quantity }) => (
+                <BasketItem
+                  key={id}
+                  id={id}
+                  name={name}
+                  price={price}
+                  quantity={quantity}
+                />
               ))}
             </Stack>
           </DrawerBody>
