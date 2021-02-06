@@ -5,6 +5,7 @@ import {
   useDisclosure,
   Button,
   Avatar,
+  Icon,
   IconButton,
 } from "@chakra-ui/react";
 import ShoppingBasket from "components/ShoppingBasket";
@@ -69,7 +70,7 @@ const Header: React.FC = () => {
               bg="none"
               aria-label="Basket"
               onClick={() => setShowBasket(true)}
-              icon={<BiShoppingBag />}
+              icon={<Icon as={BiShoppingBag} w={6} h={6} />}
               _hover={{ background: "none" }}
             />
 

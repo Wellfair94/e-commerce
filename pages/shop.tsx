@@ -94,8 +94,6 @@ export default function Shop() {
 
   const search = products.filter(({ name }) => name.includes(input));
 
-  console.log(search);
-
   return (
     <Layout>
       <Stack spacing={3}>

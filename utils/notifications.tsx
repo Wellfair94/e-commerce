@@ -1,4 +1,6 @@
-import { UseToastOptions } from "@chakra-ui/react";
+import { UseToastOptions, Icon } from "@chakra-ui/react";
+import Notification from "components/Notification";
+import { BiShoppingBag } from "react-icons/bi";
 
 interface Notifications {
   addedToBasket: UseToastOptions;
@@ -7,11 +9,15 @@ interface Notifications {
 
 export const notifications: Notifications = {
   addedToBasket: {
-    title: "Item added to basket",
-    description: "Click to checkout",
-    status: "success",
     duration: 5000,
     isClosable: true,
+    render: () => (
+      <Notification
+        title="Item added to basket"
+        icon={<Icon as={BiShoppingBag} w={8} h={8} />}
+        description="Click to checkout"
+      />
+    ),
   },
   removedFromBasket: {
     title: "Item removed from basket",
