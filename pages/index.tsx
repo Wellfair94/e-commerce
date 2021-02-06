@@ -61,10 +61,10 @@ export default function Home() {
         mb={10}
       >
         <Heading color="white" fontWeight="600" size="3xl">
-          CERAMIC STUDIO
+          YOUR WEBSITE
         </Heading>
         <Heading color="white" size="lg" fontWeight="400" mt={4} mb={10}>
-          Artisan Pottery
+          Your subtitle here
         </Heading>
         <Button borderRadius="none" bg="black" color="white" w="150px">
           Shop Now

@@ -5,6 +5,7 @@ import {
   Text,
   useDisclosure,
   useToast,
+  UseToastOptions,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
@@ -14,7 +15,7 @@ import Props from "components/ProductCard/types";
 import BasketItem from "components/BasketItem/types";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
-import notifications from "utils/notifications";
+import { notifications } from "utils/notifications";
 
 // ADD RESPONSIVELY SIZING IMAGES
 
@@ -33,13 +34,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
 
   const handleClick = (payload: BasketItem) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
-    toast({
-      title: "Item added to basket",
-      description: "Click to view.",
-      status: "success",
-      duration: 9000,
-      isClosable: true,
-    });
+    toast(notifications.addedToCart);
   };
 
   const handleClose = () => {
@@ -53,6 +48,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
         product={product}
         isOpen={showQuickView}
         onClose={handleClose}
+        handleClick={handleClick}
       />
       <Stack
         bg="none"
@@ -93,7 +89,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
 
           <FadeButton
             isOpen={isOpen}
-            text="Add to cart"
+            text="Add to basket"
             bg="green"
             handleClick={() => handleClick(product)}
           />
