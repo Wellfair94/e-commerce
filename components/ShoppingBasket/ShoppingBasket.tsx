@@ -38,7 +38,7 @@ const basket = [
 
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
   return (
-    <Drawer size="sm" isOpen={isOpen} placement="right" onClose={onClose}>
+    <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
@@ -58,7 +58,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
               </Stack>
 
               <Divider />
-              <Button>Go to Payment</Button>
+              <Button>Checkout</Button>
             </Stack>
           </DrawerFooter>
         </DrawerContent>

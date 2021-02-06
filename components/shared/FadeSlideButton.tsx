@@ -7,6 +7,8 @@ interface Props {
   handleClick: () => void;
 }
 
+// ! Add extra breakpoint for iPad Pro
+
 const FadeButton: React.FC<Props> = ({ isOpen, text, handleClick }) => {
   return (
     <SlideFade
