@@ -13,6 +13,7 @@ interface Props {
   title: string;
   // ! Look into solution for below
   icon: any;
+  //   icon: ComponentWithAs<"svg", IconProps>;
   description: string;
 }
 

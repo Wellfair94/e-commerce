@@ -10,6 +10,7 @@ import {
   Heading,
   Stack,
   Divider,
+  Text,
 } from "@chakra-ui/react";
 import BasketItem from "components/BasketItem";
 import { useContext } from "react";
@@ -23,31 +24,40 @@ interface Props {
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
   const { basket } = useContext(BasketContext);
 
+  const numberOfItems = basket.length;
+
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
       <DrawerOverlay>
         <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Your Basket</DrawerHeader>
+          <DrawerCloseButton color="white" />
+          <DrawerHeader py={5} px={5} bg="black" color="white">
+            Your shopping basket
+          </DrawerHeader>
 
           <DrawerBody p={2}>
             <Stack spacing={1}>
-              {basket.map(({ id, name, price, quantity }) => (
-                <BasketItem
-                  key={id}
-                  id={id}
-                  name={name}
-                  price={price}
-                  quantity={quantity}
-                />
-              ))}
+              {numberOfItems ? (
+                basket.map(({ id, name, price, quantity }) => (
+                  <BasketItem
+                    key={id}
+                    id={id}
+                    name={name}
+                    price={price}
+                    quantity={quantity}
+                  />
+                ))
+              ) : (
+                <Text mx={3}>Your basket is empty</Text>
+              )}
             </Stack>
           </DrawerBody>
           <DrawerFooter bg="white" p={5}>
             <Stack spacing={4} w="100%">
               <Stack spacing={1}>
                 <Heading size="md" fontWeight="500">
-                  Total: £59.94
+                  Total ({numberOfItems} item{numberOfItems === 1 ? "" : "s"}):
+                  £0.00
                 </Heading>
               </Stack>
 
@@ -56,7 +66,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
                 bg="black"
                 color="white"
                 borderRadius="none"
-                disabled={basket.length === 0}
+                disabled={numberOfItems === 0}
               >
                 Checkout
               </Button>

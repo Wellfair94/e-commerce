@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
       </Stack>
       <Divider display={["block", "block", "none"]} />
       <Stack fontWeight="600">
-        <Text>CERAMIC-STUDIO</Text>
+        <Text>YOUR BUSINESS</Text>
         <Text>A: 500 Terry Francois St</Text>
         <Text>San Francisco, CA 94158</Text>
         <Text>T: 123-456-7890</Text>
