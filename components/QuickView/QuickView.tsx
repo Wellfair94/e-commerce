@@ -58,7 +58,7 @@ const QuickView: React.FC<Props> = ({
             <Stack w="50%" spacing={6}>
               <Stack>
                 <Heading size="md">{name}</Heading>
-                <Text fontSize="md">{price}</Text>
+                <Text fontSize="md">£{price.toFixed(2)}</Text>
               </Stack>
 
               <Text>

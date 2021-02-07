@@ -1,38 +1,20 @@
-import {
-  Image,
-  Flex,
-  Heading,
-  Text,
-  Stack,
-  IconButton,
-  Button,
-  useToast,
-  HStack,
-} from "@chakra-ui/react";
-import { useContext, useState } from "react";
+import { Image, Flex, Text, Stack, useToast, HStack } from "@chakra-ui/react";
+import { useContext } from "react";
 import Props from "components/BasketItem/types";
-import { DeleteIcon } from "@chakra-ui/icons";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
 import { notifications } from "utils/notifications";
-import { useNotifications } from "hooks/useNotifications";
-import QuantityInput from "components/shared/QuantityInput";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
-  const [updateQuantity, setUpdateQuanity] = useState(quantity);
-  const [total, setTotal] = useState(10);
   const { dispatch } = useContext(BasketContext);
   const toast = useToast();
-
-  const clearBasket = () => {
-    dispatch({ type: BasketActions.CLEAR_BASKET });
-    toast(notifications.CLEARED_BASKET);
-  };
 
   const removeItem = () => {
     dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
     toast(notifications.REMOVED_FROM_BASKET);
   };
+
+  const total = quantity * price;
 
   // Should go on product object
   const url =
@@ -52,7 +34,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
       <HStack spacing={2} justifyContent="space-between" w="100%" h="100%">
         <Stack spacing={0} pr={1}>
           <Text fontWeight="600">{name}</Text>
-          <Text fontSize="sm">{price}</Text>
+          <Text fontSize="xs">£{price.toFixed(2)}</Text>
           <Text fontSize="sm">Quantity {quantity}</Text>
         </Stack>
         <Flex
@@ -61,7 +43,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
           h="100%"
           align="center"
         >
-          <Text fontWeight="600">£19.98</Text>
+          <Text fontWeight="600">£{total.toFixed(2)}</Text>
           <Text
             as="u"
             fontSize="sm"

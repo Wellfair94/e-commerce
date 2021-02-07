@@ -90,8 +90,8 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
         </Flex>
 
         <Flex w="100%" bg="none" textAlign="center" p={6} direction="column">
-          <Text>{name}</Text>
-          <Text mb={5}>{price}</Text>
+          <Text fontWeight="600">{name}</Text>
+          <Text mb={5}>£{price.toFixed(2)}</Text>
 
           <FadeButton
             isOpen={isOpen}

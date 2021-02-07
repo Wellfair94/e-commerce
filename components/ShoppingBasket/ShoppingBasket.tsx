@@ -23,7 +23,7 @@ interface Props {
 }
 
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { basket } = useContext(BasketContext);
+  const { basket = [] } = useContext(BasketContext);
 
   const numberOfItems = basket.length;
 
