@@ -67,7 +67,7 @@ export default function Home() {
         bgSize="cover"
         bgPos="center center"
         w="100%"
-        minH="70vh"
+        minH="80vh"
         py={5}
         mb={10}
       >
