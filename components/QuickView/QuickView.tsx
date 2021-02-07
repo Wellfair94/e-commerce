@@ -70,7 +70,7 @@ const QuickView: React.FC<Props> = ({
                 bg="black"
                 onClick={() => handleClick(payload)}
               >
-                Add to cart
+                Add to basket
               </Button>
               <Text fontSize="sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
