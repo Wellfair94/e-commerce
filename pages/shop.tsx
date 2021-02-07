@@ -100,6 +100,7 @@ export default function Shop() {
 
         {!searchResults && (
           <Stack
+            textAlign="center"
             bg="gray.100"
             w="100%"
             p={10}
