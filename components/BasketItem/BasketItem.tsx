@@ -22,7 +22,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
 
   const handleClick = () => {
     dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
-    toast(notifications.removedFromBasket);
+    toast(notifications.REMOVED_FROM_BASKET);
   };
 
   return (

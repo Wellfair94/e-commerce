@@ -4,12 +4,12 @@ import { BiShoppingBag } from "react-icons/bi";
 import { ImUndo } from "react-icons/im";
 
 interface Notifications {
-  addedToBasket: UseToastOptions;
-  removedFromBasket: UseToastOptions;
+  ADDED_TO_BASKET: UseToastOptions;
+  REMOVED_FROM_BASKET: UseToastOptions;
 }
 
 export const notifications: Notifications = {
-  addedToBasket: {
+  ADDED_TO_BASKET: {
     duration: 5000,
     isClosable: true,
     render: () => (
@@ -20,7 +20,7 @@ export const notifications: Notifications = {
       />
     ),
   },
-  removedFromBasket: {
+  REMOVED_FROM_BASKET: {
     status: "warning",
     duration: 5000,
     isClosable: true,

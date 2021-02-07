@@ -19,8 +19,6 @@ import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
 import { notifications } from "utils/notifications";
 
-// ADD RESPONSIVELY SIZING IMAGES
-
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();
   const [showQuickView, setShowQuickView] = useState(false);
@@ -36,7 +34,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
 
   const handleClick = (payload: BasketItem) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
-    toast(notifications.addedToBasket);
+    toast(notifications.ADDED_TO_BASKET);
   };
 
   const handleClose = () => {
