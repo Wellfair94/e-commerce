@@ -1,4 +1,4 @@
-import { Flex, Button, Heading, Grid } from "@chakra-ui/react";
+import { Flex, Button, Heading, Grid, Image, Img } from "@chakra-ui/react";
 import ProductCard from "components/ProductCard";
 import SectionDivider from "components/shared/SectionDivider";
 import Layout from "layout";
@@ -62,7 +62,10 @@ export default function Home() {
         justify="center"
         align="center"
         textAlign="center"
-        bg="grey"
+        bg="url(https://images.unsplash.com/photo-1612052903339-ef40d2dbf2ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=882&q=80)"
+        bgRepeat="no-repeat"
+        bgSize="cover"
+        bgPos="center center"
         w="100%"
         minH="70vh"
         py={5}
@@ -83,10 +86,7 @@ export default function Home() {
 
       <SectionDivider
         title="OUR COLLECTION"
-        subText="I'm a paragraph. Click here to add your own text and edit me. It’s
-          easy. Just click “Edit Text” or double click me to add your own
-          content and make changes to the font. I’m a great place for you to
-          tell a story and let your users know a little more about you."
+        subText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum non iure explicabo provident itaque ab eius fugiat sapiente. Quia perspiciatis assumenda voluptatum similique in sint asperiores rem officiis beatae ab."
       />
 
       <Grid

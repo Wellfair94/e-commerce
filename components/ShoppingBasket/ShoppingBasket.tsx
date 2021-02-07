@@ -15,6 +15,7 @@ import {
 import BasketItem from "components/BasketItem";
 import { useContext } from "react";
 import { BasketContext } from "contexts/BasketContext";
+import Link from "next/link";
 
 interface Props {
   isOpen: boolean;
@@ -67,14 +68,16 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
               </Stack>
 
               <Divider />
-              <Button
-                bg="black"
-                color="white"
-                borderRadius="none"
-                disabled={numberOfItems === 0}
-              >
-                Checkout
-              </Button>
+              <Link href="/checkout">
+                <Button
+                  bg="black"
+                  color="white"
+                  borderRadius="none"
+                  disabled={numberOfItems === 0}
+                >
+                  Checkout
+                </Button>
+              </Link>
             </Stack>
           </DrawerFooter>
         </DrawerContent>

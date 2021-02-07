@@ -20,6 +20,7 @@ interface Props {
   isOpen: boolean;
   onClose: () => void;
   handleClick: (payload: BasketItem) => void;
+  url: string;
 }
 
 const QuickView: React.FC<Props> = ({
@@ -27,6 +28,7 @@ const QuickView: React.FC<Props> = ({
   isOpen,
   onClose,
   handleClick,
+  url,
 }) => {
   const [updateQuantity, setUpdateQuanity] = useState(1);
 
@@ -51,11 +53,14 @@ const QuickView: React.FC<Props> = ({
       <ModalContent borderRadius="none">
         <ModalCloseButton />
         <ModalBody py={8}>
-          <HStack>
-            <Image w="50%" />
-            <Stack w="50%" spacing={4}>
-              <Heading size="md">{name}</Heading>
-              <Text fontSize="md">{price}</Text>
+          <HStack spacing={6} align="flex-start">
+            <Image src={url} w="50%" />
+            <Stack w="50%" spacing={6}>
+              <Stack>
+                <Heading size="md">{name}</Heading>
+                <Text fontSize="md">{price}</Text>
+              </Stack>
+
               <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
                 nobis laborum dolorum nulla asperiores optio sint perspiciatis

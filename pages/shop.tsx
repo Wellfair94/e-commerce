@@ -1,4 +1,12 @@
-import { Flex, Grid, Text, Input, Stack, Heading } from "@chakra-ui/react";
+import {
+  Flex,
+  Grid,
+  Text,
+  Input,
+  Stack,
+  Heading,
+  Button,
+} from "@chakra-ui/react";
 import ProductCard from "components/ProductCard";
 import SectionDivider from "components/shared/SectionDivider";
 import Layout from "layout";
@@ -93,6 +101,7 @@ export default function Shop() {
   const [input, setInput] = useState("");
 
   const search = products.filter(({ name }) => name.includes(input));
+  const searchResults = search.length;
 
   return (
     <Layout>
@@ -105,20 +114,53 @@ export default function Shop() {
 
         <Stack bg="white" align="center" p={10}>
           <Input
+            value={input}
             placeholder="Search for a product"
             maxW="lg"
             onChange={(e) => setInput(e.target.value)}
           />
         </Stack>
 
-        <Grid
-          templateColumns={["1fr", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
-          gap={2}
-        >
-          {search.map(({ id, name, price, tag = null, quantity }) => (
-            <ProductCard key={id} id={id} name={name} price={price} tag={tag} />
-          ))}
-        </Grid>
+        {searchResults && (
+          <Grid
+            templateColumns={["1fr", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
+            gap={2}
+          >
+            {search.map(({ id, name, price, tag = null, quantity }) => (
+              <ProductCard
+                key={id}
+                id={id}
+                name={name}
+                price={price}
+                tag={tag}
+              />
+            ))}
+          </Grid>
+        )}
+
+        {!searchResults && (
+          <Stack
+            bg="gray.100"
+            w="100%"
+            p={10}
+            mb={5}
+            justify="center"
+            align="center"
+            spacing={5}
+          >
+            <Heading size="md">
+              Sorry, we couldn't find what you're looking for.
+            </Heading>
+            <Button
+              bg="black"
+              color="white"
+              borderRadius="none"
+              onClick={() => setInput("")}
+            >
+              Reset search
+            </Button>
+          </Stack>
+        )}
       </Stack>
     </Layout>
   );

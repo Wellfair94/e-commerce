@@ -2,7 +2,7 @@ import { Stack, Heading, Text } from "@chakra-ui/react";
 
 interface Props {
   title: string;
-  subText: string;
+  subText?: string;
   dark?: boolean;
 }
 
