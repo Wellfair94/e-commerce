@@ -3,12 +3,14 @@ import BasketItem from "components/BasketItem/types";
 type Actions =
   | { type: "add-item"; payload: BasketItem }
   | { type: "remove-item"; payload: { id: string } }
-  | { type: "clear-cart" };
+  | { type: "clear-cart" }
+  | { type: "undo" };
 
 export const BasketActions = {
   ADD_ITEM: "add-item",
   REMOVE_ITEM: "remove-item",
   CLEAR_CART: "clear-cart",
+  UNDO: "undo",
 };
 
 interface Basket {
@@ -17,7 +19,7 @@ interface Basket {
 }
 
 export const BasketReducer = (state: Basket, action: Actions) => {
-  const { basket } = state;
+  const { basket, prevBasket } = state;
 
   switch (action.type) {
     case "add-item":
@@ -44,6 +46,8 @@ export const BasketReducer = (state: Basket, action: Actions) => {
       return { basket: filtered, prevBasket: basket };
     case "clear-cart":
       return { basket: [], prevBasket: basket };
+    case "undo":
+      return { basket: prevBasket, prevBasket: basket };
     default:
       return state;
   }

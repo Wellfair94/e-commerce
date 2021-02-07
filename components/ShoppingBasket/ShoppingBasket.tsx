@@ -43,14 +43,21 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
               ))}
             </Stack>
           </DrawerBody>
-          <DrawerFooter bg="green" p={5}>
+          <DrawerFooter bg="white" p={5}>
             <Stack spacing={4} w="100%">
               <Stack spacing={1}>
-                <Heading size="md">Total: £59.94</Heading>
+                <Heading size="md" fontWeight="500">
+                  Total: £59.94
+                </Heading>
               </Stack>
 
               <Divider />
-              <Button bg="black" color="white" borderRadius="none">
+              <Button
+                bg="black"
+                color="white"
+                borderRadius="none"
+                disabled={basket.length === 0}
+              >
                 Checkout
               </Button>
             </Stack>
