@@ -26,12 +26,16 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
     toast(notifications.REMOVED_FROM_BASKET);
   };
 
+  // Should go on product object
+  const url =
+    "https://images.unsplash.com/photo-1612367289874-0fba3b4a07dd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80";
+
   return (
-    <Flex w="100%" bg="green" justifyContent="flex-start">
-      <Image w="100px" />
-      <Flex justifyContent="space-between" w="100%" h="100%" bg="grey">
+    <Flex w="100%" justifyContent="flex-start" align="center">
+      <Image src={url} w="20%" />
+      <Flex justifyContent="space-between" w="100%" h="100%">
         <Flex direction="column" p={3} pr={1}>
-          <Text>{name}</Text>
+          <Text fontWeight="600">{name}</Text>
           <Text fontSize="sm">{price}</Text>
           <Text fontSize="sm">Qty: {quantity}</Text>
         </Flex>
@@ -44,6 +48,9 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
       <IconButton
         onClick={handleClick}
         aria-label="Remove item"
+        color="red.500"
+        bg="none"
+        _hover={{ background: "none" }}
         icon={<DeleteIcon />}
       />
     </Flex>
