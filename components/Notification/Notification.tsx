@@ -28,7 +28,7 @@ const Notification: React.FC<Props> = ({ title, icon, description }) => {
 
   return (
     <HStack
-      bg="white"
+      bg="gray.50"
       p={4}
       py={4}
       _hover={{ cursor: "pointer" }}
@@ -39,7 +39,7 @@ const Notification: React.FC<Props> = ({ title, icon, description }) => {
       {icon}
       <Stack spacing={0}>
         <Text fontWeight="700">{title}</Text>
-        <Text>{description}</Text>
+        <Text fontSize="lg">{description}</Text>
       </Stack>
     </HStack>
   );

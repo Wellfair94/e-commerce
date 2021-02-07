@@ -32,14 +32,14 @@ const links = [
   //   label: "Account",
   //   path: "/account",
   // },
-  // {
-  //   label: "About",
-  //   path: "/about",
-  // },
   {
-    label: "FAQ",
-    path: "/faq",
+    label: "About",
+    path: "/about",
   },
+  // {
+  //   label: "FAQ",
+  //   path: "/faq",
+  // },
   {
     label: "Contact",
     path: "/contact",
