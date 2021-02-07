@@ -5,11 +5,11 @@ import Layout from "layout";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: {},
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   return {
+//     props: {},
+//   };
+// };
 
 const products = [
   {

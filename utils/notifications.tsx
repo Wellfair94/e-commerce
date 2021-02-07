@@ -6,6 +6,7 @@ import { ImUndo } from "react-icons/im";
 interface Notifications {
   ADDED_TO_BASKET: UseToastOptions;
   REMOVED_FROM_BASKET: UseToastOptions;
+  CLEARED_BASKET: UseToastOptions;
 }
 
 export const notifications: Notifications = {
@@ -22,12 +23,22 @@ export const notifications: Notifications = {
     ),
   },
   REMOVED_FROM_BASKET: {
-    status: "warning",
     duration: 5000,
     isClosable: true,
     render: () => (
       <Notification
         title="Item removed from basket"
+        icon={<Icon as={ImUndo} w={7} h={7} />}
+        description="Click to undo"
+      />
+    ),
+  },
+  CLEARED_BASKET: {
+    duration: 5000,
+    isClosable: true,
+    render: () => (
+      <Notification
+        title="Basket cleared"
         icon={<Icon as={ImUndo} w={7} h={7} />}
         description="Click to undo"
       />

@@ -35,7 +35,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
       blockScrollOnMount={false}
     >
       <DrawerOverlay>
-        <DrawerContent>
+        <DrawerContent bg="gray.100">
           <DrawerCloseButton color="white" />
           <DrawerHeader py={5} px={5} bg="black" color="white">
             Your shopping basket
@@ -58,7 +58,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
               )}
             </Stack>
           </DrawerBody>
-          <DrawerFooter bg="white" p={5}>
+          <DrawerFooter p={5} bg="gray.100">
             <Stack spacing={4} w="100%">
               <Stack spacing={1}>
                 <Heading size="md" fontWeight="500">
