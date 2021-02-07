@@ -27,7 +27,12 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
   const numberOfItems = basket.length;
 
   return (
-    <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+    <Drawer
+      isOpen={isOpen}
+      placement="right"
+      onClose={onClose}
+      blockScrollOnMount={false}
+    >
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton color="white" />

@@ -1,5 +1,8 @@
 import { HStack, Stack, Text } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { BasketContext } from "contexts/BasketContext";
+import { BasketActions } from "reducers/BasketReducer";
+import Router from "next/router";
+import { useContext } from "react";
 
 interface Props {
   title: string;
@@ -12,16 +15,14 @@ interface Props {
 }
 
 const Notification: React.FC<Props> = ({ title, icon, description }) => {
-  const router = useRouter();
-
   // ! Need to find a scalable way of passing in onClick functions.
   // ! This works for a couple of notifiactions, but ideally they need
   // ! to be passed in as a prop. Hardcoding here makes it harder to manage
   const handleClick = () => {
     if (title === "Item added to basket") {
-      router.push("/checkout");
+      Router.push("/checkout");
     } else {
-      console.log("fdfs");
+      // dispatch({ type: BasketActions.UNDO });
     }
   };
 

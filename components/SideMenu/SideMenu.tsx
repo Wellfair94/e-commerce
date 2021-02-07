@@ -18,7 +18,12 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
   return (
-    <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+    <Drawer
+      isOpen={isOpen}
+      placement="right"
+      onClose={onClose}
+      blockScrollOnMount={false}
+    >
       <DrawerOverlay>
         <DrawerContent>
           <DrawerCloseButton />
