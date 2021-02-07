@@ -6,6 +6,8 @@ import {
   useDisclosure,
   useToast,
   UseToastOptions,
+  Image,
+  Img,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
@@ -57,13 +59,12 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
         onMouseEnter={() => !isOpen && onToggle()}
         onMouseLeave={() => isOpen && onToggle()}
       >
-        <Box
-          w="100%"
-          h="350px"
-          bg="tomato"
+        <Flex
           position="relative"
           _hover={{ cursor: "pointer" }}
+          justify="center"
         >
+          <Img src="https://images.unsplash.com/photo-1612367289874-0fba3b4a07dd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" />
           {tag && (
             <Flex
               bg="black"
@@ -72,17 +73,18 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
               px={7}
               color="white"
               fontWeight="600"
+              left="0"
             >
               <Text>{tag}</Text>
             </Flex>
           )}
-
           <FadeSlideButton
             isOpen={isOpen}
             handleClick={() => setShowQuickView(true)}
             text="Quick view"
           />
-        </Box>
+        </Flex>
+
         <Flex w="100%" bg="none" textAlign="center" p={6} direction="column">
           <Text>{name}</Text>
           <Text mb={5}>{price}</Text>
