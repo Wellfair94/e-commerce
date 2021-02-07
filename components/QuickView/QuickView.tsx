@@ -45,6 +45,7 @@ const QuickView: React.FC<Props> = ({
       isOpen={isOpen}
       onClose={onClose}
       motionPreset="slideInBottom"
+      blockScrollOnMount={false}
     >
       <ModalOverlay />
       <ModalContent borderRadius="none">
