@@ -13,13 +13,13 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import QuantityInput from "components/shared/QuantityInput";
-import BasketItem from "components/BasketItem/types";
+import Product from "interfaces/Product";
 
 interface Props {
-  product: BasketItem;
+  product: Product;
   isOpen: boolean;
   onClose: () => void;
-  handleClick: (payload: BasketItem) => void;
+  handleClick: (payload: Product) => void;
   url: string;
 }
 

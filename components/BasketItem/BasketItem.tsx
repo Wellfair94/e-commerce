@@ -1,6 +1,6 @@
 import { Image, Flex, Text, Stack, useToast, HStack } from "@chakra-ui/react";
 import { useContext } from "react";
-import Props from "components/BasketItem/types";
+import Props from "interfaces/Product";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
 import { notifications } from "utils/notifications";

@@ -13,8 +13,7 @@ import { useContext, useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
 import FadeButton from "components/shared/FadeButton";
 import QuickView from "components/QuickView";
-import Props from "components/ProductCard/types";
-import BasketItem from "components/BasketItem/types";
+import Props from "interfaces/Product";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
 import { notifications } from "utils/notifications";
@@ -33,7 +32,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
     quantity: 1,
   };
 
-  const handleClick = (payload: BasketItem) => {
+  const handleClick = (payload: Props) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
     toast(notifications.ADDED_TO_BASKET);
   };
