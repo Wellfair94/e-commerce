@@ -6,7 +6,9 @@ import {
   Text,
   ComponentWithAs,
   IconProps,
+  useToast,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { BiShoppingBag } from "react-icons/bi";
 
 interface Props {
@@ -15,13 +17,14 @@ interface Props {
   icon: any;
   //   icon: ComponentWithAs<"svg", IconProps>;
   description: string;
+  duration?: number;
+  isClosable?: boolean;
 }
 
 const Notification: React.FC<Props> = ({ title, icon, description }) => {
   return (
     <HStack
       bg="white"
-      //   borderRadius="sm"
       p={4}
       py={4}
       _hover={{ cursor: "pointer" }}

@@ -13,6 +13,7 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
 import { notifications } from "utils/notifications";
+import { useNotifications } from "hooks/useNotifications";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   const [updateQuantity, setUpdateQuanity] = useState(quantity);

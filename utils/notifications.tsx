@@ -12,6 +12,7 @@ export const notifications: Notifications = {
   ADDED_TO_BASKET: {
     duration: 5000,
     isClosable: true,
+
     render: () => (
       <Notification
         title="Item added to basket"

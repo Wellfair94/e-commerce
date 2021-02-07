@@ -18,6 +18,7 @@ import BasketItem from "components/BasketItem/types";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
 import { notifications } from "utils/notifications";
+import { useNotifications } from "hooks/useNotifications";
 
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();
