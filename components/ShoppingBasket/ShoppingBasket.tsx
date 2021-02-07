@@ -11,11 +11,14 @@ import {
   Stack,
   Divider,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import BasketItem from "components/BasketItem";
 import { useContext } from "react";
 import { BasketContext } from "contexts/BasketContext";
 import Link from "next/link";
+import { BasketActions } from "reducers/BasketReducer";
+import { notifications } from "utils/notifications";
 
 interface Props {
   isOpen: boolean;
@@ -23,9 +26,17 @@ interface Props {
 }
 
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { basket = [] } = useContext(BasketContext);
+  const { basket, dispatch } = useContext(BasketContext);
+  const toast = useToast();
 
   const numberOfItems = basket.length;
+
+  const clearBasket = () => {
+    if (!numberOfItems) return;
+
+    dispatch({ type: BasketActions.CLEAR_BASKET });
+    toast(notifications.CLEARED_BASKET);
+  };
 
   return (
     <Drawer
@@ -60,7 +71,15 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
           </DrawerBody>
           <DrawerFooter p={5} bg="gray.100">
             <Stack spacing={4} w="100%">
-              <Stack spacing={1}>
+              <Stack spacing={2}>
+                <Text
+                  fontSize="sm"
+                  as="u"
+                  _hover={{ cursor: "pointer" }}
+                  onClick={clearBasket}
+                >
+                  Clear basket
+                </Text>
                 <Heading size="md" fontWeight="500">
                   Total ({numberOfItems} item{numberOfItems === 1 ? "" : "s"}):
                   £0.00
