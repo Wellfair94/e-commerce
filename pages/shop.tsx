@@ -60,7 +60,9 @@ export default function Shop() {
   const [state, dispatch] = useReducer(ShopReducer, []);
   const [input, setInput] = useState("");
 
-  const search = products.filter(({ name }) => name.includes(input));
+  const search = products.filter(({ name }) =>
+    name.toLocaleLowerCase().includes(input.toLocaleLowerCase())
+  );
   const searchResults = search.length;
 
   return (
