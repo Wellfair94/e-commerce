@@ -9,12 +9,42 @@ import {
   Button,
   Text,
   Stack,
+  Flex,
+  StackDivider,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const links = [
+  {
+    label: "Home",
+    path: "/",
+  },
+  {
+    label: "Shop",
+    path: "/shop",
+  },
+  // {
+  //   label: "Account",
+  //   path: "/account",
+  // },
+  // {
+  //   label: "About",
+  //   path: "/about",
+  // },
+  {
+    label: "FAQ",
+    path: "/faq",
+  },
+  {
+    label: "Contact",
+    path: "/contact",
+  },
+];
 
 const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
   return (
@@ -25,18 +55,21 @@ const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
       blockScrollOnMount={false}
     >
       <DrawerOverlay>
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Menu</DrawerHeader>
+        <DrawerContent bg="gray.100">
+          <DrawerCloseButton color="white" />
+          <DrawerHeader py={5} px={5} bg="black" color="white">
+            Menu
+          </DrawerHeader>
 
-          <DrawerBody>
-            <Stack spacing={5}>
-              <Text>Home</Text>
-              <Text>Shop</Text>
-              <Text>Account</Text>
-              <Text>About</Text>
-              <Text>FAQ</Text>
-              <Text>Contact</Text>
+          <DrawerBody p={2}>
+            <Stack spacing={1} fontWeight="500">
+              {links.map(({ label, path }) => (
+                <Link key={label} href={path}>
+                  <Flex bg="white" p={4} boxShadow="sm">
+                    <Text>{label}</Text>
+                  </Flex>
+                </Link>
+              ))}
             </Stack>
           </DrawerBody>
           {/* <DrawerFooter p={0}>
