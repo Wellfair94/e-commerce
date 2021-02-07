@@ -1,7 +1,7 @@
-import BasketItem from "components/BasketItem/types";
+import Product from "interfaces/Product";
 
 type Actions =
-  | { type: "add-item"; payload: BasketItem }
+  | { type: "add-item"; payload: Product }
   | { type: "remove-item"; payload: { id: string } }
   | { type: "clear-basket" }
   | { type: "undo" };
@@ -14,8 +14,8 @@ export const BasketActions = {
 };
 
 interface Basket {
-  basket: BasketItem[];
-  prevBasket: BasketItem[];
+  basket: Product[];
+  prevBasket: Product[];
 }
 
 export const BasketReducer = (state: Basket, action: Actions) => {
