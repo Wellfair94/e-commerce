@@ -12,6 +12,7 @@ import SectionDivider from "components/shared/SectionDivider";
 import Layout from "layout";
 import { useReducer, useState } from "react";
 import { ShopReducer } from "reducers/ShopReducer";
+import ErrorMessage from "components/shared/ErrorMessage";
 
 const products = [
   {
@@ -101,28 +102,11 @@ export default function Shop() {
         )}
 
         {!searchResults && (
-          <Stack
-            textAlign="center"
-            bg="gray.100"
-            w="100%"
-            p={10}
-            mb={5}
-            justify="center"
-            align="center"
-            spacing={5}
-          >
-            <Heading size="md">
-              Sorry, we couldn't find what you're looking for.
-            </Heading>
-            <Button
-              bg="black"
-              color="white"
-              borderRadius="none"
-              onClick={() => setInput("")}
-            >
-              Reset search
-            </Button>
-          </Stack>
+          <ErrorMessage
+            message="Sorry, we couldn't find what you're looking for."
+            button="Reset search"
+            handleClick={() => setInput("")}
+          />
         )}
       </Stack>
     </Layout>

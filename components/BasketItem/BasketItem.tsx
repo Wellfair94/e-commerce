@@ -24,17 +24,19 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   return (
     <Flex
       w="100%"
+      maxW="600px"
       justifyContent="flex-start"
       align="center"
       bg="white"
       py={2}
       px={4}
-      boxShadow="sm"
     >
       <Image src={url} w="15%" mr={2} />
-      <HStack spacing={2} justifyContent="space-between" w="100%" h="100%">
+      <Flex spacing={2} justifyContent="space-between" w="100%" h="100%">
         <Stack spacing={0} pr={1}>
-          <Text fontWeight="600">{name}</Text>
+          <Text fontWeight="600" fontSize="lg">
+            {name}
+          </Text>
           <Text fontSize="xs">£{price.toFixed(2)}</Text>
           <Text fontSize="sm">Quantity {quantity}</Text>
         </Stack>
@@ -54,7 +56,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
             Remove
           </Text>
         </Flex>
-      </HStack>
+      </Flex>
     </Flex>
   );
 };

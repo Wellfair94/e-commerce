@@ -21,6 +21,8 @@ const BasketProvider: React.FC = ({ children }) => {
     return prevValue + curValue["price"];
   }, 0);
 
+  console.log(basket);
+
   return (
     <BasketContext.Provider
       value={{ basket, prevBasket, dispatch, totalItems, totalPrice }}

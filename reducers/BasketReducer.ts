@@ -1,5 +1,7 @@
 import Product from "interfaces/Product";
 
+// ! ADD ACTION TO INCREASE/DECREASE QUANTITY OF ITEM
+
 type Actions =
   | { type: "ADD_ITEM"; payload: Product }
   | { type: "REMOVE_ITEM"; payload: { id: string } }
