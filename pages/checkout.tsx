@@ -5,7 +5,11 @@ import Layout from "layout";
 export default function Checkout() {
   return (
     <Layout>
-      <SectionDivider title="Checkout" dark />
+      <SectionDivider
+        title="Checkout"
+        subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi temporibus quibusdam minus possimus vitae autem consequatur, provident quidem doloremque totam, quo eos molestiae perferendis esse dolore natus illo rerum voluptates."
+        dark
+      />
     </Layout>
   );
 }

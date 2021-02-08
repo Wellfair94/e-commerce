@@ -13,12 +13,15 @@ const SectionDivider: React.FC<Props> = ({ title, subText, dark }) => {
       justify="center"
       align="center"
       p={10}
-      textAlign="center"
+      w="100%"
+      textAlign="left"
       bg={dark ? "gray.800" : "white"}
       color={dark ? "white" : "gray.800"}
       spacing={5}
     >
-      <Heading fontWeight="500">{title}</Heading>
+      <Heading fontWeight="700" w="100%" maxW="600px">
+        {title}
+      </Heading>
       <Text w="100%" maxW="600px">
         {subText}
       </Text>

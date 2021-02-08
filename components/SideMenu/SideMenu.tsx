@@ -65,7 +65,12 @@ const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
             <Stack spacing={1} fontWeight="500">
               {links.map(({ label, path }) => (
                 <Link key={label} href={path}>
-                  <Flex bg="white" p={4} boxShadow="sm">
+                  <Flex
+                    bg="white"
+                    p={4}
+                    boxShadow="sm"
+                    _hover={{ cursor: "pointer" }}
+                  >
                     <Text>{label}</Text>
                   </Flex>
                 </Link>
