@@ -1,16 +1,16 @@
 import Product from "interfaces/Product";
 
 type Actions =
-  | { type: "add-item"; payload: Product }
-  | { type: "remove-item"; payload: { id: string } }
-  | { type: "clear-basket" }
-  | { type: "undo" };
+  | { type: "ADD_ITEM"; payload: Product }
+  | { type: "REMOVE_ITEM"; payload: { id: string } }
+  | { type: "CLEAR_BASKET" }
+  | { type: "UNDO" };
 
 export const BasketActions = {
-  ADD_ITEM: "add-item",
-  REMOVE_ITEM: "remove-item",
-  CLEAR_BASKET: "clear-basket",
-  UNDO: "undo",
+  ADD_ITEM: "ADD_ITEM",
+  REMOVE_ITEM: "REMOVE_ITEM",
+  CLEAR_BASKET: "CLEAR_BASKET",
+  UNDO: "UNDO",
 };
 
 interface Basket {
@@ -22,7 +22,7 @@ export const BasketReducer = (state: Basket, action: Actions) => {
   const { basket, prevBasket } = state;
 
   switch (action.type) {
-    case "add-item":
+    case "ADD_ITEM":
       const duplicateItem = basket.find(({ id }) => id === action.payload.id);
 
       if (duplicateItem) {
@@ -41,12 +41,12 @@ export const BasketReducer = (state: Basket, action: Actions) => {
       } else {
         return { basket: [...basket, action.payload], prevBasket: basket };
       }
-    case "remove-item":
+    case "REMOVE_ITEM":
       const filtered = basket.filter(({ id }) => id !== action.payload.id);
       return { basket: filtered, prevBasket: basket };
-    case "clear-basket":
+    case "CLEAR_BASKET":
       return { basket: [], prevBasket: basket };
-    case "undo":
+    case "UNDO":
       return { basket: prevBasket, prevBasket: basket };
     default:
       return state;

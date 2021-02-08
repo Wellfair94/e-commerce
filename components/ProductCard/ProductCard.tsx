@@ -1,12 +1,9 @@
 import {
   Stack,
-  Box,
   Flex,
   Text,
   useDisclosure,
   useToast,
-  UseToastOptions,
-  Image,
   Img,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
@@ -16,13 +13,13 @@ import QuickView from "components/QuickView";
 import Props from "interfaces/Product";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
-import { notifications } from "utils/notifications";
+import { getNotificationProps, notifications } from "utils/notifications";
 import { url } from "utils/url";
 
 const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
   const { isOpen, onToggle } = useDisclosure();
   const [showQuickView, setShowQuickView] = useState(false);
-  const { dispatch } = useContext(BasketContext);
+  const { basket, dispatch } = useContext(BasketContext);
   const toast = useToast();
 
   const product = {
@@ -34,7 +31,9 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
 
   const handleClick = (payload: Props) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
-    toast(notifications.ADDED_TO_BASKET);
+    toast(
+      getNotificationProps(notifications.CLEARED_BASKET, () => alert("test"))
+    );
   };
 
   const handleClose = () => {

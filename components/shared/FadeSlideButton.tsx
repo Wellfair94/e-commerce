@@ -21,7 +21,8 @@ const FadeButton: React.FC<Props> = ({ isOpen, text, handleClick }) => {
         bottom="0"
         isFullWidth
         borderRadius="none"
-        bg="white"
+        bg="gray.100"
+        opacity={0.95}
         color="black"
         display={["none", "none", "none", "block"]}
       >
