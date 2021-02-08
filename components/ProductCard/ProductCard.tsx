@@ -65,7 +65,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
           _hover={{ cursor: "pointer" }}
           justify="center"
         >
-          <Image src={url} />
+          <Image src={url} w="100%" />
           {tag && (
             <Flex
               bg="black"
