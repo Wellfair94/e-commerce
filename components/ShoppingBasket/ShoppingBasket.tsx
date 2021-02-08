@@ -18,7 +18,7 @@ import { useContext } from "react";
 import { BasketContext } from "contexts/BasketContext";
 import Link from "next/link";
 import { BasketActions } from "reducers/BasketReducer";
-import { notifications } from "utils/notifications";
+import { getNotificationProps, notifications } from "utils/notifications";
 
 interface Props {
   isOpen: boolean;
@@ -35,7 +35,11 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
     if (!numberOfItems) return;
 
     dispatch({ type: BasketActions.CLEAR_BASKET });
-    toast(notifications.CLEARED_BASKET);
+    toast(
+      getNotificationProps(notifications.CLEARED_BASKET, () =>
+        dispatch({ type: BasketActions.UNDO })
+      )
+    );
   };
 
   return (

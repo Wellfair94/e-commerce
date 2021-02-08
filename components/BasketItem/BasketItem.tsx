@@ -3,8 +3,8 @@ import { useContext } from "react";
 import Props from "interfaces/Product";
 import { BasketContext } from "contexts/BasketContext";
 import { BasketActions } from "reducers/BasketReducer";
-import { notifications } from "utils/notifications";
-import { url } from "utils/url";
+import { getNotificationProps, notifications } from "utils/notifications";
+import { url } from "utils/static";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
   const { dispatch } = useContext(BasketContext);
@@ -12,7 +12,11 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
 
   const removeItem = () => {
     dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
-    toast(notifications.REMOVED_FROM_BASKET);
+    toast(
+      getNotificationProps(notifications.REMOVED_FROM_BASKET, () =>
+        dispatch({ type: BasketActions.UNDO })
+      )
+    );
   };
 
   const total = quantity * price;
