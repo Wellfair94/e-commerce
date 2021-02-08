@@ -26,19 +26,13 @@ interface Props {
 }
 
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { basket, dispatch } = useContext(BasketContext);
+  const { basket, dispatch, totalItems, totalPrice } = useContext(
+    BasketContext
+  );
   const toast = useToast();
 
-  const numberOfItems = basket.reduce((prev: number, cur: number) => {
-    return prev + cur["quantity"];
-  }, 0);
-
-  const totalPrice = basket.reduce((prev: number, cur: number) => {
-    return prev + cur["price"];
-  }, 0);
-
   const clearBasket = () => {
-    if (!numberOfItems) return;
+    if (!totalItems) return;
 
     dispatch({ type: BasketActions.CLEAR_BASKET });
     toast(
@@ -64,7 +58,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
 
           <DrawerBody p={2}>
             <Stack spacing={1}>
-              {numberOfItems ? (
+              {totalItems ? (
                 basket.map(({ id, name, price, quantity }) => (
                   <BasketItem
                     key={id}
@@ -91,8 +85,8 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
                   Clear basket
                 </Text>
                 <Heading size="md" fontWeight="500">
-                  Total ({numberOfItems} item{numberOfItems === 1 ? "" : "s"}):
-                  £{totalPrice.toFixed(2)}
+                  Total ({totalItems} item{totalItems === 1 ? "" : "s"}): £
+                  {totalPrice.toFixed(2)}
                 </Heading>
               </Stack>
 
@@ -102,7 +96,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
                   bg="black"
                   color="white"
                   borderRadius="none"
-                  disabled={numberOfItems === 0}
+                  disabled={totalItems === 0}
                 >
                   Checkout
                 </Button>
