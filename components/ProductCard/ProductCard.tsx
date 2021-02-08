@@ -5,6 +5,7 @@ import {
   useDisclosure,
   useToast,
   Image,
+  Box,
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import FadeSlideButton from "components/shared/FadeSlideButton";
@@ -65,7 +66,10 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
           _hover={{ cursor: "pointer" }}
           justify="center"
         >
-          <Image src={url} w="100%" />
+          <Box>
+            <Image src={url} />
+          </Box>
+
           {tag && (
             <Flex
               bg="black"
