@@ -102,7 +102,6 @@ export default function Home() {
       <SectionDivider
         title="ANOTHER SECTION"
         subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum rerum accusantium perferendis maiores ex repudiandae, similique vero maxime illum voluptate temporibus delectus fugit! Dolor iste voluptatem eaque? Nesciunt, dolorem placeat?"
-        dark
       />
 
       <Section
@@ -114,6 +113,7 @@ export default function Home() {
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita soluta sequi fugiat accusantium corporis illo nobis eos ipsum magni? Optio quisquam beatae fuga repudiandae fugit itaque minus accusamus non.",
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita soluta sequi fugiat accusantium corporis illo nobis eos ipsum magni? Optio quisquam beatae fuga repudiandae fugit itaque minus accusamus non.",
         ]}
+        dark
       />
     </Layout>
   );

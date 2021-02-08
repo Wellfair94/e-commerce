@@ -15,6 +15,7 @@ const Section: React.FC<Props> = ({ title, subtitle, body, dark }) => {
       p={10}
       spacing={5}
       bg={dark ? "gray.800" : "gray.100"}
+      color={dark ? "white" : "gray.800"}
     >
       <Heading fontWeight="700" w="100%" maxW="600px">
         {title}
