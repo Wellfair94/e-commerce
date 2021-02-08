@@ -88,6 +88,7 @@ export default function Home() {
       <SectionDivider
         title="OUR COLLECTION"
         subText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum non iure explicabo provident itaque ab eius fugiat sapiente. Quia perspiciatis assumenda voluptatum similique in sint asperiores rem officiis beatae ab."
+        centerText
       />
 
       <Grid
@@ -100,8 +101,9 @@ export default function Home() {
       </Grid>
 
       <SectionDivider
-        title="ANOTHER SECTION"
+        title="Another section"
         subText="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum rerum accusantium perferendis maiores ex repudiandae, similique vero maxime illum voluptate temporibus delectus fugit! Dolor iste voluptatem eaque? Nesciunt, dolorem placeat?"
+        centerText
       />
 
       <Section
@@ -109,11 +111,9 @@ export default function Home() {
         subtitle="This is a longer sub-title"
         body={[
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita soluta sequi fugiat accusantium corporis illo nobis eos ipsum magni? Optio quisquam beatae fuga repudiandae fugit itaque minus accusamus non.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita soluta sequi fugiat accusantium corporis illo nobis eos ipsum magni? Optio quisquam beatae fuga repudiandae fugit itaque minus accusamus non.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita soluta sequi fugiat accusantium corporis illo nobis eos ipsum magni? Optio quisquam beatae fuga repudiandae fugit itaque minus accusamus non.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas expedita soluta sequi fugiat accusantium corporis illo nobis eos ipsum magni? Optio quisquam beatae fuga repudiandae fugit itaque minus accusamus non.",
         ]}
         dark
+        centerText
       />
     </Layout>
   );

@@ -4,9 +4,15 @@ interface Props {
   title: string;
   subText?: string;
   dark?: boolean;
+  centerText?: boolean;
 }
 
-const SectionDivider: React.FC<Props> = ({ title, subText, dark }) => {
+const SectionDivider: React.FC<Props> = ({
+  title,
+  subText,
+  dark,
+  centerText,
+}) => {
   return (
     <Stack
       mb={2}
@@ -14,7 +20,7 @@ const SectionDivider: React.FC<Props> = ({ title, subText, dark }) => {
       align="center"
       p={10}
       w="100%"
-      textAlign="left"
+      textAlign={centerText ? "center" : "left"}
       bg={dark ? "gray.800" : "white"}
       color={dark ? "white" : "gray.800"}
       spacing={5}

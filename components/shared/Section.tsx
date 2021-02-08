@@ -5,14 +5,22 @@ interface Props {
   subtitle?: string;
   body: string[];
   dark?: boolean;
+  centerText?: boolean;
 }
 
-const Section: React.FC<Props> = ({ title, subtitle, body, dark }) => {
+const Section: React.FC<Props> = ({
+  title,
+  subtitle,
+  body,
+  dark,
+  centerText,
+}) => {
   return (
     <Stack
       align="center"
       w="100%"
       p={10}
+      textAlign={centerText ? "center" : "left"}
       spacing={5}
       bg={dark ? "gray.800" : "gray.100"}
       color={dark ? "white" : "gray.800"}
