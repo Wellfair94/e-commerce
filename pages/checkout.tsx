@@ -1,14 +1,4 @@
-import {
-  Flex,
-  Image,
-  Grid,
-  Text,
-  Input,
-  Stack,
-  Button,
-  Heading,
-  Divider,
-} from "@chakra-ui/react";
+import { Stack, Button, Heading, Divider } from "@chakra-ui/react";
 import ErrorMessage from "components/shared/ErrorMessage";
 import SectionDivider from "components/shared/SectionDivider";
 import { BasketContext } from "contexts/BasketContext";
