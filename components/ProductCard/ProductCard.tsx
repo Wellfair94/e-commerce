@@ -67,7 +67,7 @@ const ProductCard: React.FC<Props> = ({ id, name, price, tag }) => {
           justify="center"
         >
           <Box>
-            <Image src={url} />
+            <Image src={url} h="auto" />
           </Box>
 
           {tag && (
