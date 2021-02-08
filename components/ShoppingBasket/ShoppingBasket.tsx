@@ -29,7 +29,13 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
   const { basket, dispatch } = useContext(BasketContext);
   const toast = useToast();
 
-  const numberOfItems = basket.length;
+  const numberOfItems = basket.reduce((prev: number, cur: number) => {
+    return prev + cur["quantity"];
+  }, 0);
+
+  const totalPrice = basket.reduce((prev: number, cur: number) => {
+    return prev + cur["price"];
+  }, 0);
 
   const clearBasket = () => {
     if (!numberOfItems) return;
@@ -86,7 +92,7 @@ const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
                 </Text>
                 <Heading size="md" fontWeight="500">
                   Total ({numberOfItems} item{numberOfItems === 1 ? "" : "s"}):
-                  £0.00
+                  £{totalPrice.toFixed(2)}
                 </Heading>
               </Stack>
 
