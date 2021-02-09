@@ -73,7 +73,7 @@ export default function Home() {
         mb={10}
       >
         <Heading color="white" fontWeight="600" size="3xl">
-          YOUR WEBSITE
+          Your Website
         </Heading>
         <Heading color="white" size="lg" fontWeight="400" mt={4} mb={10}>
           Your subtitle here
