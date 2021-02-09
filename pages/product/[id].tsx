@@ -1,10 +1,16 @@
-import { Flex, Grid, Text, Input, Stack, Heading } from "@chakra-ui/react";
 import Layout from "layout";
-import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {},
+  };
+};
 
 export default function Product() {
-  const router = useRouter();
-  const { id } = router.query;
-
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <Product />
+    </Layout>
+  );
 }
