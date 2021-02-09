@@ -5,7 +5,6 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import ProductProps from "interfaces/Product";
 import Product from "components/Product";
 

@@ -16,7 +16,6 @@ import BasketItem from "components/BasketItem";
 import { useContext } from "react";
 import { BasketContext } from "contexts/BasketContext";
 import Link from "next/link";
-
 import { useBasket } from "hooks/useBasket";
 
 interface Props {

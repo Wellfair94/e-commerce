@@ -18,10 +18,8 @@ const BasketProvider: React.FC = ({ children }) => {
   }, 0);
 
   const totalPrice = basket.reduce((prevValue, curValue) => {
-    return prevValue + (curValue["price"] * curValue["quantity"]);
+    return prevValue + curValue["price"] * curValue["quantity"];
   }, 0);
-
-  console.log(basket);
 
   return (
     <BasketContext.Provider
