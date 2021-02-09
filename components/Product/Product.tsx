@@ -1,10 +1,19 @@
 import { HStack, Image, Stack, Heading, Text, Button } from "@chakra-ui/react";
 import QuantityInput from "components/shared/QuantityInput";
 import { useBasket } from "hooks/useBasket";
+import { useState } from "react";
 import { url } from "utils/static";
 
-const Product = ({ name, price, quantity, setQuantity, payload }) => {
+const Product = ({ id, name, price }) => {
+  const [quantity, setQuantity] = useState(1);
   const { handleClick } = useBasket();
+
+  const payload = {
+    id: id,
+    name: name,
+    price: price,
+    quantity: quantity,
+  };
 
   return (
     <HStack spacing={6} align="flex-start">

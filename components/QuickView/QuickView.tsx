@@ -16,16 +16,7 @@ interface Props {
 }
 
 const QuickView: React.FC<Props> = ({ product, isOpen, onClose }) => {
-  const [updateQuantity, setUpdateQuantity] = useState(1);
-
   const { id, name, price } = product;
-
-  const payload = {
-    id: id,
-    name: name,
-    price: price,
-    quantity: updateQuantity,
-  };
 
   return (
     <Modal
@@ -39,13 +30,7 @@ const QuickView: React.FC<Props> = ({ product, isOpen, onClose }) => {
       <ModalContent borderRadius="none">
         <ModalCloseButton />
         <ModalBody py={8}>
-          <Product
-            name={name}
-            price={price}
-            quantity={updateQuantity}
-            setQuantity={setUpdateQuantity}
-            payload={payload}
-          />
+          <Product id={id} name={name} price={price} />
         </ModalBody>
       </ModalContent>
     </Modal>

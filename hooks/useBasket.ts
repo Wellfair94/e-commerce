@@ -13,9 +13,7 @@ export const useBasket = () => {
   const handleClick = (payload: Product) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
     toast(
-      getNotificationProps(notifications.ADDED_TO_BASKET, () =>
-        Router.push("/checkout")
-      )
+      getNotificationProps(notificationType, () => Router.push("/checkout"))
     );
   };
 
