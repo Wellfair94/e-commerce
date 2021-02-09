@@ -1,23 +1,10 @@
-import { Image, Flex, Text, Stack, useToast, HStack } from "@chakra-ui/react";
-import { useContext } from "react";
+import { Image, Flex, Text, Stack } from "@chakra-ui/react";
 import Props from "interfaces/Product";
-import { BasketContext } from "contexts/BasketContext";
-import { BasketActions } from "reducers/BasketReducer";
-import { getNotificationProps, notifications } from "utils/notifications";
 import { url } from "utils/static";
+import { useBasket } from "hooks/useBasket";
 
 const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
-  const { dispatch } = useContext(BasketContext);
-  const toast = useToast();
-
-  const removeItem = () => {
-    dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
-    toast(
-      getNotificationProps(notifications.REMOVED_FROM_BASKET, () =>
-        dispatch({ type: BasketActions.UNDO })
-      )
-    );
-  };
+  const { removeFromBasket } = useBasket();
 
   const total = quantity * price;
 
@@ -51,7 +38,7 @@ const BasketItem: React.FC<Props> = ({ id, name, price, quantity }) => {
             as="u"
             fontSize="sm"
             _hover={{ cursor: "pointer" }}
-            onClick={removeItem}
+            onClick={() => removeFromBasket(id)}
           >
             Remove
           </Text>

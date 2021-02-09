@@ -12,7 +12,7 @@ interface Props {
 
 const Product: React.FC<Props> = ({ id, name, price }) => {
   const [quantity, setQuantity] = useState(1);
-  const { handleClick } = useBasket();
+  const { addToBasket } = useBasket();
 
   const payload = {
     id: id,
@@ -39,7 +39,7 @@ const Product: React.FC<Props> = ({ id, name, price }) => {
           borderRadius="none"
           color="white"
           bg="black"
-          onClick={() => handleClick(payload)}
+          onClick={() => addToBasket(payload)}
         >
           Add to basket
         </Button>

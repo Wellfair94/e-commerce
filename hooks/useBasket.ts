@@ -10,12 +10,32 @@ export const useBasket = () => {
   const toast = useToast();
   const { dispatch } = useContext(BasketContext);
 
-  const handleClick = (payload: Product) => {
+  const addToBasket = (payload: Product) => {
     dispatch({ type: BasketActions.ADD_ITEM, payload: payload });
     toast(
-      getNotificationProps(notificationType, () => Router.push("/checkout"))
+      getNotificationProps(notifications.ADDED_TO_BASKET, () =>
+        Router.push("/checkout")
+      )
     );
   };
 
-  return { handleClick };
+  const removeFromBasket = (id: string) => {
+    dispatch({ type: BasketActions.REMOVE_ITEM, payload: id });
+    toast(
+      getNotificationProps(notifications.REMOVED_FROM_BASKET, () =>
+        dispatch({ type: BasketActions.UNDO })
+      )
+    );
+  };
+
+  const clearBasket = () => {
+    dispatch({ type: BasketActions.CLEAR_BASKET });
+    toast(
+      getNotificationProps(notifications.REMOVED_FROM_BASKET, () => {
+        dispatch({ type: BasketActions.UNDO });
+      })
+    );
+  };
+
+  return { addToBasket, removeFromBasket, clearBasket };
 };
