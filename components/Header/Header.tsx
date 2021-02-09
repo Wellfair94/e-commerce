@@ -14,25 +14,7 @@ import { useState } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { BiShoppingBag } from "react-icons/bi";
 import Link from "next/link";
-
-const links = [
-  {
-    label: "Home",
-    path: "/",
-  },
-  {
-    label: "Shop",
-    path: "/shop",
-  },
-  {
-    label: "About",
-    path: "/about",
-  },
-  {
-    label: "Contact",
-    path: "/contact",
-  },
-];
+import { headerLinks } from "utils/static";
 
 const Header: React.FC = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -55,7 +37,7 @@ const Header: React.FC = () => {
         </Flex>
 
         <HStack spacing={5} display={["none", "none", "none", "flex"]}>
-          {links.map(({ label, path }) => (
+          {headerLinks.map(({ label, path }) => (
             <Link href={path} key={label}>
               <Text fontWeight="500" _hover={{ cursor: "pointer" }}>
                 {label}

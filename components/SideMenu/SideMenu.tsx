@@ -1,50 +1,21 @@
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Button,
   Text,
   Stack,
   Flex,
-  StackDivider,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { sideMenuLinks } from "utils/static";
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
-
-const links = [
-  {
-    label: "Home",
-    path: "/",
-  },
-  {
-    label: "Shop",
-    path: "/shop",
-  },
-  // {
-  //   label: "Account",
-  //   path: "/account",
-  // },
-  {
-    label: "About",
-    path: "/about",
-  },
-  // {
-  //   label: "FAQ",
-  //   path: "/faq",
-  // },
-  {
-    label: "Contact",
-    path: "/contact",
-  },
-];
 
 const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
   return (
@@ -63,7 +34,7 @@ const Navbar: React.FC<Props> = ({ isOpen, onClose }) => {
 
           <DrawerBody p={2}>
             <Stack spacing={1} fontWeight="500">
-              {links.map(({ label, path }) => (
+              {sideMenuLinks.map(({ label, path }) => (
                 <Link key={label} href={path}>
                   <Flex
                     bg="white"
