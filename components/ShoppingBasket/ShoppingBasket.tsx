@@ -11,14 +11,13 @@ import {
   Stack,
   Divider,
   Text,
-  useToast,
 } from "@chakra-ui/react";
 import BasketItem from "components/BasketItem";
 import { useContext } from "react";
 import { BasketContext } from "contexts/BasketContext";
 import Link from "next/link";
-import { BasketActions } from "reducers/BasketReducer";
-import { getNotificationProps, notifications } from "utils/notifications";
+
+import { useBasket } from "hooks/useBasket";
 
 interface Props {
   isOpen: boolean;
@@ -26,21 +25,8 @@ interface Props {
 }
 
 const ShoppingBasket: React.FC<Props> = ({ isOpen, onClose }) => {
-  const { basket, dispatch, totalItems, totalPrice } = useContext(
-    BasketContext
-  );
-  const toast = useToast();
-
-  const clearBasket = () => {
-    if (!totalItems) return;
-
-    dispatch({ type: BasketActions.CLEAR_BASKET });
-    toast(
-      getNotificationProps(notifications.CLEARED_BASKET, () =>
-        dispatch({ type: BasketActions.UNDO })
-      )
-    );
-  };
+  const { basket, totalItems, totalPrice } = useContext(BasketContext);
+  const { clearBasket } = useBasket();
 
   return (
     <Drawer
