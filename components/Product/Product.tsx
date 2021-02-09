@@ -4,7 +4,13 @@ import { useBasket } from "hooks/useBasket";
 import { useState } from "react";
 import { url } from "utils/static";
 
-const Product = ({ id, name, price }) => {
+interface Props {
+  id: string;
+  name: string;
+  price: number;
+}
+
+const Product: React.FC<Props> = ({ id, name, price }) => {
   const [quantity, setQuantity] = useState(1);
   const { handleClick } = useBasket();
 
