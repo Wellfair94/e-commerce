@@ -20,7 +20,7 @@ export const useBasket = () => {
   };
 
   const removeFromBasket = (id: string) => {
-    dispatch({ type: BasketActions.REMOVE_ITEM, payload: id });
+    dispatch({ type: BasketActions.REMOVE_ITEM, payload: { id: id } });
     toast(
       getNotificationProps(notifications.REMOVED_FROM_BASKET, () =>
         dispatch({ type: BasketActions.UNDO })
